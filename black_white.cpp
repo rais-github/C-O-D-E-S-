@@ -1,3 +1,25 @@
+// O(1)
+// class BlackAndWhite
+// {
+//     static final long MOD=1000000007;
+//     //Function to find out the number of ways we can place a black and a 
+//     //white Knight on this chessboard such that they cannot attack each other.
+//     static long numOfWays(int n, int m)
+//     {
+//         // add your code here
+        
+//         long total=((m*n)%MOD * (m*n-1)%MOD)%MOD;
+//         if(n>=1 && m >=2)
+//         {
+//             total-=4*(n-1)*(m-2);
+//         }
+//          if(n>=2 && m >=1)
+//         {
+//             total-=4*(n-2)*(m-1);
+//         }
+//         return total;
+//     }
+// }
 long long numOfWays(int n, int m)
 
 {
