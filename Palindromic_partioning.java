@@ -15,7 +15,7 @@ public class Solution {
 		for(int i=idx;i<a.length;i++)
 		{
 			if(isPalindrome(a,idx,i))
-			path.add(a.subString(i+1));
+			path.add(a.substring(i+1));
 			partitioning(a,idx+1,path,res);
 			path.remove(path.size()-1);
 		}

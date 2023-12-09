@@ -1,7 +1,7 @@
 class knightDialer_memo{
     
-        int[][] memo;
-       int n;
+    int[][] memo;
+    int n;
       final int MOD = (int) 1e9 + 7;
        int[][] jumps = {
            {4, 6},
