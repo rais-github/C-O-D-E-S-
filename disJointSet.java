@@ -3,11 +3,13 @@ import java.util.*;
 class DisjointSet {
     ArrayList<Integer> rank = new ArrayList<>();
     ArrayList<Integer> parent = new ArrayList<>();
+    ArrayList<Integer> size = new ArrayList<>();
 
     public DisjointSet(int n) {
         for (int i = 0; i < n; i++) {
             parent.add(i);
             rank.add(0);
+            size.add(1);
         }
     }
 
@@ -33,6 +35,21 @@ class DisjointSet {
             rank.set(ul_pv, rank.get(ul_pv) + 1);
         }
     }
+    
+    public void unionBySize(int u,int v){
+        int ul_pv=findParent(v);
+        int ul_pu=findParent(u);
+
+        if(ul_pu==ul_pv) return;
+
+        if(size.get(ul_pu) < size.get(ul_pv)){
+            parent.set(ul_pu,ul_pv);
+            size.set(ul_pv,size.get(ul_pu)+size.get(ul_pv));
+        }
+        else{
+            parent.set(ul_pv,ul_pv);
+            size.set(ul_pv,size.get(ul_pu)+size.get(ul_pv));
+        }
 
     public static void main(String[] args) {
         DisjointSet ds = new DisjointSet(5);
