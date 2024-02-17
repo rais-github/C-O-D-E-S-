@@ -1,4 +1,3 @@
-import java.util.*;
 
 class DisjointSet {
     ArrayList<Integer> rank = new ArrayList<>();
