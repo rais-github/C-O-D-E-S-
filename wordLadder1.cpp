@@ -23,7 +23,7 @@ public:
                         q.push({word, steps + 1});
                     }
                 }
-                word[i] = original; // set back to the original character
+                word[i] = original; // set back to the original Character
             }
         }
         return 0;
