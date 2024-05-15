@@ -1,4 +1,4 @@
-class Solution {
+class Sol {
     public List<List<Integer>> threeSum(int[] nums) {
         List<List<Integer>> ls = new ArrayList<>();
         int n = nums.length;
