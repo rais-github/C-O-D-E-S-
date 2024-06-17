@@ -18,7 +18,7 @@ class Solution {
         int prevMax = 0; // Represents dp[i-2]
         int currMax = freq[1]; // Represents dp[i-1] for the first element
 
-        // Iterate starting from the second element (i=2) up to the maximum value
+       
         for (int i = 2; i <= maxVal; i++) {
             int temp = currMax; // Store the current maximum for later use
             currMax = Math.max(currMax, prevMax + freq[i]);
