@@ -1,6 +1,5 @@
 class Solution {
-    // static String str = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    // static char map[] = str.toCharArray();
+    
 
     public String convertToTitle(int columnNumber) {
         StringBuilder res = new StringBuilder();
