@@ -1,48 +1,66 @@
-class TrieNode {
-    TrieNode[] childNode;
+class TrieNode{
+    TrieNode [] childNode;
     boolean wordEnd;
-
-    TrieNode()
+    public TrieNode()
     {
-        childNode = new TrieNode[26];
-        wordEnd = false;
+        this.childNode = new TrieNode[26];
+        for(int i = 0 ; i <26;i++)
+        {
+            childNode[i]=null;
+        }
+        this.wordEnd = false;
     }
 }
-
 class Trie {
     TrieNode root;
-
-    Trie() { root = new TrieNode(); }
-
-    // Function to insert a key into the Trie
-    void insert(String key)
-    {
-        TrieNode currentNode = root;
-        for (int i = 0; i < key.length(); i++) {
-            int index = key.charAt(i) - 'a';
-            if (currentNode.childNode[index] == null) {
-                currentNode.childNode[index]
-                    = new TrieNode();
-            }
-            currentNode = currentNode.childNode[index];
-        }
-        currentNode.wordEnd = true;
+    public Trie() {
+        this.root = new TrieNode();
     }
-
-    // Function to search for a key in the Trie
-    boolean search(String key)
-    {
+    
+    public void insert(String word) {
         TrieNode currentNode = root;
-        for (int i = 0; i < key.length(); i++) {
-            int index = key.charAt(i) - 'a';
-            if (currentNode.childNode[index] == null) {
-                return false;
+        for(int i = 0 ; i < word.length() ; i++)
+        {
+            int index = word.charAt(i)-'a';
+            if(currentNode.childNode[index]==null)
+            {
+                currentNode.childNode[index] = new TrieNode();
+                currentNode = currentNode.childNode[index];
             }
-            currentNode = currentNode.childNode[index];
+            else currentNode = currentNode.childNode[index];
+        }
+        currentNode.wordEnd=true;
+    }
+    
+    public boolean search(String word) {
+        TrieNode currentNode = root;
+        for(int i = 0 ;  i < word.length() ; i++)
+        {
+            int index = word.charAt(i)-'a';
+            if(currentNode.childNode[index]!=null)
+            {
+                currentNode=currentNode.childNode[index];
+            }
+            else return false;
         }
         return currentNode.wordEnd;
     }
+    
+    public boolean startsWith(String prefix) {
+        TrieNode currentNode = root;
+        for(int i = 0 ; i < prefix.length() ; i++)
+        {
+            int index = prefix.charAt(i)-'a';
+            if(currentNode.childNode[index]!=null)
+            {
+                currentNode=currentNode.childNode[index];
+            }
+            else return false;
+        }
+        return true;
+    }   
 }
+
 
 public class Main {
     public static void main(String[] args)
