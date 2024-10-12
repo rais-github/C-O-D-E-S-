@@ -1,4 +1,4 @@
-class Solution {
+class solution {
     public int findMaxLength(int[] nums) {
         int N = nums.length;
         int[] mp = new int[2*N+2];
